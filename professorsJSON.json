@@ -5544,6 +5544,20 @@
     "overall_rating": "1.9"
   },
   {
+    "tDept": "Mathematics",
+    "tSid": "1513",
+    "institution_name": "University of Massachusetts - Amherst",
+    "tFname": "Theodosios",
+    "tMiddlename": "",
+    "tLname": "Douvropoulos",
+    "tid": 2690366,
+    "tNumRatings": 2,
+    "rating_class": "good",
+    "contentType": "TEACHER",
+    "categoryType": "PROFESSOR",
+    "overall_rating": "4.5"
+  },
+  {
     "tDept": "Marketing",
     "tSid": "1513",
     "institution_name": "University of Massachusetts - Amherst",
