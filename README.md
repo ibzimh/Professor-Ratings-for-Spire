@@ -6,7 +6,6 @@ Planning on making this into a Chrome Extension, but right now to get it to work
 - Press Ctrl+Shift+C and then click on the professors name
 
 - On the top of the inspect page it should show some buttons titled:
-  - 'Elements' ~Some more here maybe~ '>>' '+'\
   ![image](https://user-images.githubusercontent.com/115051423/204680471-f27a504a-ca3d-45bb-9b83-44bbbeb604f3.png)
   
 - Press '>>' and then press 'Sources'
