@@ -5,8 +5,6 @@ Planning on making this into a Chrome Extension, but right now to get it to work
 - Go into inspect mode by pressing f12 or fn+f12
 - Press Ctrl+Shift+C and then click on something on the classes page
 
-![image](https://user-images.githubusercontent.com/115051423/204680367-65fdd2ae-a292-4f42-af2a-06a18b014692.png)
-
 - On the top of the inspect page it should show some buttons titled:
   - 'Elements' ~Some more here maybe~ '>>' '+'\
   ![image](https://user-images.githubusercontent.com/115051423/204680471-f27a504a-ca3d-45bb-9b83-44bbbeb604f3.png)
