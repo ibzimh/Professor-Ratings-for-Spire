@@ -9,26 +9,31 @@ function addRatings() {
     .then((response) => response.json())
     .then(data => {
       // iterate through all links
-      for (const link of links) {
+      for (let i = 0; i < links.length; i++) {
         // (1) NameOfTheProfessor <span style="color:theColor">theRating</span>
-        let current_link = link.innerHTML.toString();
+        let currentLink_text = links[i].innerHTML.toString();
         // Put all the 'phrases' in (1) into an array and remove ones which are only spaces
-        let names_array = current_link.trim().split(" ").filter(entry => entry.trim() !== "");
+        let trimmedNamesArray = currentLink_text.trim().split(" ").filter(entry => entry.trim() !== "");
 
-        let first_name = names_array[0];
-        let last_name = names_array[1];
+        // if the professor's name is irregular, ignore it, we can add this functionaility in later
+        if (trimmedNamesArray.length !== 2) {
+          continue;
+        }
+
+        let firstName = trimmedNamesArray[0];
+        let lastName = trimmedNamesArray[1];
 
         //find the professor in the array of objects 'data' for which 'tFName' = firstName and 'tLName' = lastName
         function getProfRating() {
           // get the professor from the data (by their name)
-          let professor = data.filter(prof => prof.tFname === first_name && prof.tLname === last_name)
+          let professor = data.filter(prof => prof.tFname === firstName && prof.tLname === lastName)
           
           // if no professors with the name have been found then do a more lenient search 
           if (professor.length === 0) {
             // check if a shortened version of the name is displayed (or if last and middle names have been mixed up)
             professor = data.filter(prof => {
-              return (prof.tFname.indexOf(first_name) === 0) &&
-              (prof.tMiddlename.indexOf(last_name) === 0 || prof.tLname.indexOf(last_name) === 0)
+              return (prof.tFname.indexOf(firstName) === 0) &&
+              (prof.tMiddlename.indexOf(lastName) === 0 || prof.tLname.indexOf(lastName) === 0)
             })
           }
           
@@ -36,20 +41,20 @@ function addRatings() {
         }
 
         // call the function ^ 
-        let prof_rating = getProfRating();
+        let profRating = getProfRating();
 
         // If there isn't any rating for the professor 
-        if (prof_rating === undefined) {
-          prof_rating = "No rating found!";
+        if (profRating === undefined) {
+          profRating = "No rating found!";
         }
 
         // alas! display the ratings
-        if (prof_rating >= 4) {
-          link.innerHTML += ` <span style="color:green">${prof_rating}</span>`;
-        } else if (prof_rating >= 3) {
-          link.innerHTML += ` <span style="color:orange">${prof_rating}</span>`;
+        if (profRating >= 4) {
+          links[i].innerHTML += ` <span style="color:green">${profRating}</span>`;
+        } else if (profRating >= 3) {
+          links[i].innerHTML += ` <span style="color:orange">${profRating}</span>`;
         } else {
-          link.innerHTML += ` <span style="color:red">${prof_rating}</span>`;
+          links[i].innerHTML += ` <span style="color:red">${profRating}</span>`;
         }
       }
     });
