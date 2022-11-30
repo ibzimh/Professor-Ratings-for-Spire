@@ -18,7 +18,7 @@ function addRatings() {
         let first_name = names_array[0];
         let last_name = names_array[1];
 
-        //find the professor in the array of objects 'data' for which 'tFName' = firstName and 'tLName' = lastName
+        // get the ratings for the current professor
         function getProfRating() {
           // get the professor from the data (by their name)
           let professor = data.filter(prof => prof.tFname === first_name && prof.tLname === last_name)
