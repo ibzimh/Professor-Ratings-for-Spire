@@ -3,7 +3,7 @@ Adds rate my professor ratings to the spire search for classes page.
 Planning on making this into a Chrome Extension, but right now to get it to work:
 - Open the Spire Search for Classes page 
 - Go into inspect mode by pressing f12 or fn+f12
-- Press Ctrl+Shift+C and then click on something on the classes page
+- Press Ctrl+Shift+C and then click on the professors name
 
 - On the top of the inspect page it should show some buttons titled:
   - 'Elements' ~Some more here maybe~ '>>' '+'\
