@@ -20,4 +20,4 @@ Planning on making this into a Chrome Extension, but right now to get it to work
 - Press Ctrl+Enter
 - The snippet will be saved so you won't have to copy paste it everytime!
 <br />
-ProfessorJSON.json uses a slightly modified version of https://github.com/tisuela/ratemyprof-api to get the ratings data. 
+ProfessorJSON.json uses a slightly modified version of a RMP web scraping tool made by https://github.com/tisuela
