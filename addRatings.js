@@ -1,3 +1,8 @@
+/*
+* Ibrahim Hasaan 2023
+* MIT License
+*/
+
 function addRatings() {
   // gets the name of the professors
   let links = document.querySelectorAll('[href*="mailto:"]');
