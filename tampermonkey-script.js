@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Professor Ratings for Spire
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Get professor ratings from rate my professor directly in spire!
 // @author       Ibrahim Hasaan
 // @match        *://*/*
