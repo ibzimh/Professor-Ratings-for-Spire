@@ -1,12 +1,15 @@
+/*
+* Ibrahim Hasaan 2023
+* MIT License
+*/
+
 // ==UserScript==
 // @name         Professor Ratings for Spire
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      1.0
 // @description  Get professor ratings from rate my professor directly in spire!
 // @author       Ibrahim Hasaan
-// @match        *://*/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
-// @grant        GM_log
+// @match        *://*.spire.umass.edu/psc/heproda*
 // ==/UserScript==
 
 (function () {
