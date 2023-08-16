@@ -4,9 +4,9 @@
 // @version      0.1
 // @description  Get professor ratings from rate my professor directly in spire!
 // @author       Ibrahim Hasaan
-// @match        https://spire.umass.edu/*
+// @match        *://*/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
-// @grant        none
+// @grant        GM_log
 // ==/UserScript==
 
 (function () {
@@ -37,7 +37,7 @@
                         // get the professor from the data (by their name)
                         let professor = data.filter(prof => prof.tFname === first_name && prof.tLname === last_name)
 
-                        // if no professors with the name have been found then do a more lenient search 
+                        // if no professors with the name have been found then do a more lenient search
                         if (professor.length === 0) {
                             // check if a shortened version of the name is displayed (or if last and middle names have been mixed up)
                             professor = data.filter(prof => {
@@ -49,10 +49,10 @@
                         return professor.length > 0 ? professor[0].overall_rating : undefined;
                     }
 
-                    // call the function ^ 
+                    // call the function ^
                     let prof_rating = getProfRating();
 
-                    // If there isn't any rating for the professor 
+                    // If there isn't any rating for the professor
                     if (prof_rating === undefined) {
                         prof_rating = "No rating found!";
                     }
@@ -66,7 +66,7 @@
                         link.innerHTML += ` <span style="color:red">${prof_rating}</span>`;
                     }
                 }
-            });
+            }).catch(err => console.log(err));
     }
 
     addRatings();
