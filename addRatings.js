@@ -9,6 +9,7 @@ function addRatings() {
   // the json with the professor's ratings
   let url =
     "https://raw.githubusercontent.com/ibzimh/UMA_RMP_Data/main/professorsJSON.json";
+addRatings();
 
   fetch(url)
     .then((response) => response.json())
@@ -60,4 +61,3 @@ function addRatings() {
     });
 }
 
-addRatings();
