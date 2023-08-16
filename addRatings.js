@@ -3,17 +3,27 @@
 * MIT License
 */
 
-function addRatings() {
-  // gets the name of the professors
-  let links = document.querySelectorAll('[href*="mailto:"]');
-  // the json with the professor's ratings
-  let url =
-    "https://raw.githubusercontent.com/ibzimh/UMA_RMP_Data/main/professorsJSON.json";
 addRatings();
 
+function getLinks() {
+  const links = document.querySelectorAll('[href*="mailto:"]');
+
+  // retry in XXX seconds if the links are not found
+  return links.length > 0 ? Promise.resolve(links) : new Promise((resolve, _) => {
+      setTimeout(() => resolve(getLinks()), 5000);
+  });
+}
+
+function addRatings() {
+  let url = "https://raw.githubusercontent.com/ibzimh/UMA_RMP_Data/main/professorsJSON.json";
+  
   fetch(url)
     .then((response) => response.json())
     .then(data => {
+      return getLinks().then(links => [data, links])
+    })
+    .then(data_and_links => {
+      let [data, links] = data_and_links;
       // iterate through all links
       for (const link of links) {
         // (1) NameOfTheProfessor <span style="color:theColor">theRating</span>
