@@ -74,6 +74,8 @@
                         link.innerHTML += ` <span style="color:red">${prof_rating}</span>`;
                     }
                 }
+
+                addStartANewSearchListeners();
             });
     }
 
@@ -92,5 +94,24 @@
         // add listeners on the search buttons
         [buttons[2], buttons[3], buttons[6], buttons[7]]
             .forEach(button => button.addEventListener("click", addRatings));
+    }
+
+    // TODO: improve code logic (and variable names)
+    // to restart code when 'Start A New Search' buttons are pressed
+    function addStartANewSearchListeners() {
+        let buttons = getDocument().getElementsByClassName("PSPUSHBUTTON");
+
+        // add listeners on the buttons
+        [buttons[0], buttons[1], buttons[2], buttons[3]]
+            .forEach(button => button.addEventListener("click", waitAndAddListeners));
+    }
+
+    function waitAndAddListeners() {
+        const buttons = getDocument().getElementsByClassName("PSPUSHBUTTON");
+    
+        // retry in 5 seconds if the links are not found
+        return buttons.length >= 7 ? addListeners() : new Promise((resolve, _) => {
+            setTimeout(() => resolve(getLinks()), 5000);
+        });
     }
 })();
