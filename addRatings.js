@@ -6,7 +6,9 @@
 addRatings();
 
 function getLinks() {
-  const links = document.querySelectorAll('[href*="mailto:"]');
+  const doc = getDocument();
+  const links = doc.querySelectorAll('[href*="mailto:"]');
+  console.log("i'm trying to find the links!");
 
   // retry in 5 seconds if the links are not found
   return links.length > 0 ? Promise.resolve(links) : new Promise((resolve, _) => {
@@ -68,3 +70,10 @@ function addRatings() {
     });
 }
 
+function getDocument() {
+  // if in parent frame
+  if (window.frames[0]) {
+      return window.frames[0].document;
+  }
+  return window.frames.document;
+}
